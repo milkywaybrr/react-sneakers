@@ -1,21 +1,21 @@
-import productImage from "../../assets/product_1.png";
+import FormatMoney from "../../utils/FormatMoney";
 import { HeartIcon, PlusIcon } from "../Icons/Icons";
 
-const Product = () => {
+const Product = ({ product }) => {
     return (
         <div className="product">
             <div className="product__action">
                 <HeartIcon size={24} />
             </div>
 
-            <img src={productImage} alt="" />
+            <img src={product.preview} alt={product.name} />
 
-            <h3>Наименование продукта</h3>
+            <h3>{product.name}</h3>
 
             <div className="product__footer">
                 <div className="price">
                     <span className="gray">Цена:</span>
-                    <span className="value">12 999 руб.</span>
+                    <span className="value">{FormatMoney(product.price)}</span>
                 </div>
 
                 <button>
